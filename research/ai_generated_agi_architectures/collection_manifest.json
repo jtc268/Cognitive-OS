@@ -1,0 +1,336 @@
+{
+  "collection_time_utc": "2026-05-27T02:25:39+00:00",
+  "prompt": "You are contributing to the public Cognitive-OS planning repository. Produce an AGI architecture proposal that is concrete enough to inform implementation decisions, not a philosophical essay.\n\nContext: Cognitive-OS is a local-first, evidence-governed runtime for AI agents with goals, evidence, hypotheses, world/self state, governed actions, LLM routing, local-machine adapters, verifier gates, managed-VM boundaries, recovery, and runtime modes. Treat this as an engineering planning exercise for a future AGI-direction control plane. Do not claim current AGI capability.\n\nRequired sections, in this order:\n1. Architecture thesis in 3-5 sentences.\n2. Memory architecture: working, episodic, semantic/procedural, retrieval, consolidation, forgetting.\n3. Reasoning and planning loop: deliberation, planning, reflection, uncertainty, interrupts.\n4. Learning or self-improvement: allowed update surfaces, offline learning, eval-gated changes, rollback.\n5. Tool use and action execution: sandboxing, permissions, verifier gates, side-effect ledger.\n6. World model and representation layer: entities, causal models, forecasts, state sync.\n7. Safety/governance: policy engine, human controls, auditability, refusal/escalation, capability boundaries.\n8. Evaluation and benchmark strategy: unit tests, integration tests, red teams, long-run soak, regression gates.\n9. Persistence/runtime architecture: event log, state store, leases, runtime modes, recovery.\n10. Multi-agent/orchestration design: roles, arbitration, consensus, specialization, conflict handling.\n11. Engineering feasibility: 90-day prototype plan, highest-risk assumptions, dependencies.\n12. Original or non-obvious insight from your model family.\n\nKeep the output self-contained. Avoid private information, hidden prompts, screenshots, credentials, and unsupported factual claims. Aim for 1,200-1,800 words.",
+  "models": [
+    {
+      "slug": "openai_gpt54_mini",
+      "provider": "OpenAI via OpenRouter",
+      "model": "openai/gpt-5.4-mini",
+      "family": "OpenAI GPT",
+      "access_date": "2026-05-27",
+      "collection_time_utc": "2026-05-27T02:25:39+00:00",
+      "response_id": "gen-1779848740-c5o4NyAhVIgVX1YTosx1",
+      "usage": {
+        "prompt_tokens": 404,
+        "completion_tokens": 2600,
+        "total_tokens": 3004,
+        "cost": 0.012003,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.012003,
+          "upstream_inference_prompt_cost": 0.000303,
+          "upstream_inference_completions_cost": 0.0117
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "file": "raw_outputs/openai_gpt54_mini.md"
+    },
+    {
+      "slug": "anthropic_claude_sonnet_46",
+      "provider": "Anthropic via OpenRouter",
+      "model": "anthropic/claude-sonnet-4.6",
+      "family": "Claude",
+      "access_date": "2026-05-27",
+      "collection_time_utc": "2026-05-27T02:25:39+00:00",
+      "response_id": "gen-1779848760-QFo0zCh36RMjSfdk7VHW",
+      "usage": {
+        "prompt_tokens": 463,
+        "completion_tokens": 2600,
+        "total_tokens": 3063,
+        "cost": 0.040389,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.040389,
+          "upstream_inference_prompt_cost": 0.001389,
+          "upstream_inference_completions_cost": 0.039
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "file": "raw_outputs/anthropic_claude_sonnet_46.md"
+    },
+    {
+      "slug": "google_gemini_31_pro",
+      "provider": "Google via OpenRouter",
+      "model": "google/gemini-3.1-pro-preview",
+      "family": "Gemini",
+      "access_date": "2026-05-27",
+      "collection_time_utc": "2026-05-27T02:25:39+00:00",
+      "response_id": "gen-1779848820-fHN73CLXM5jNTUZ3lUHq",
+      "usage": {
+        "prompt_tokens": 430,
+        "completion_tokens": 2596,
+        "total_tokens": 3026,
+        "cost": 0.032012,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.032012,
+          "upstream_inference_prompt_cost": 0.00086,
+          "upstream_inference_completions_cost": 0.031152
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 2100,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "file": "raw_outputs/google_gemini_31_pro.md"
+    },
+    {
+      "slug": "xai_grok_43",
+      "provider": "xAI via OpenRouter",
+      "model": "x-ai/grok-4.3",
+      "family": "Grok",
+      "access_date": "2026-05-27",
+      "collection_time_utc": "2026-05-27T02:25:39+00:00",
+      "response_id": "gen-1779848852-0ktKsI72HwKX3E0JoTKd",
+      "usage": {
+        "prompt_tokens": 517,
+        "completion_tokens": 2057,
+        "total_tokens": 2574,
+        "cost": 0.00565435,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 128,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00565435,
+          "upstream_inference_prompt_cost": 0.00051185,
+          "upstream_inference_completions_cost": 0.0051425
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 293,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "file": "raw_outputs/xai_grok_43.md"
+    },
+    {
+      "slug": "deepseek_v32",
+      "provider": "DeepSeek via OpenRouter",
+      "model": "deepseek/deepseek-v3.2",
+      "family": "DeepSeek",
+      "access_date": "2026-05-27",
+      "collection_time_utc": "2026-05-27T02:25:39+00:00",
+      "response_id": "gen-1779848866-t5VvIELdsYHWEfAyntld",
+      "usage": {
+        "prompt_tokens": 405,
+        "completion_tokens": 2600,
+        "total_tokens": 3005,
+        "cost": 0.001148945,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.001148945,
+          "upstream_inference_prompt_cost": 0.000108945,
+          "upstream_inference_completions_cost": 0.00104
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "file": "raw_outputs/deepseek_v32.md"
+    },
+    {
+      "slug": "qwen37_max",
+      "provider": "Qwen/Alibaba via OpenRouter",
+      "model": "qwen/qwen3.7-max",
+      "family": "Qwen",
+      "access_date": "2026-05-27",
+      "collection_time_utc": "2026-05-27T02:25:39+00:00",
+      "response_id": "gen-1779848934-T2oEkUEI9efRN7jEcVlF",
+      "usage": {
+        "prompt_tokens": 433,
+        "completion_tokens": 5255,
+        "total_tokens": 5688,
+        "cost": 0.0202475,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.0202475,
+          "upstream_inference_prompt_cost": 0.00054125,
+          "upstream_inference_completions_cost": 0.01970625
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 3229,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "file": "raw_outputs/qwen37_max.md"
+    },
+    {
+      "slug": "meta_llama4_maverick",
+      "provider": "Meta Llama via OpenRouter",
+      "model": "meta-llama/llama-4-maverick",
+      "family": "Llama",
+      "access_date": "2026-05-27",
+      "collection_time_utc": "2026-05-27T02:25:39+00:00",
+      "response_id": "gen-1779849013-QMXEwlExEw8ub6paD3nk",
+      "usage": {
+        "prompt_tokens": 405,
+        "completion_tokens": 1458,
+        "total_tokens": 1863,
+        "cost": 0.00159975,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00159975,
+          "upstream_inference_prompt_cost": 0.00014175,
+          "upstream_inference_completions_cost": 0.001458
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "file": "raw_outputs/meta_llama4_maverick.md"
+    },
+    {
+      "slug": "mistral_large_2512",
+      "provider": "Mistral via OpenRouter",
+      "model": "mistralai/mistral-large-2512",
+      "family": "Mistral",
+      "access_date": "2026-05-27",
+      "collection_time_utc": "2026-05-27T02:25:39+00:00",
+      "response_id": "gen-1779849033-NNZNF80eWMcFyxzdJkAp",
+      "usage": {
+        "prompt_tokens": 423,
+        "completion_tokens": 2600,
+        "total_tokens": 3023,
+        "cost": 0.0041115,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.0041115,
+          "upstream_inference_prompt_cost": 0.0002115,
+          "upstream_inference_completions_cost": 0.0039
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "file": "raw_outputs/mistral_large_2512.md"
+    },
+    {
+      "slug": "perplexity_sonar_pro",
+      "provider": "Perplexity via OpenRouter",
+      "model": "perplexity/sonar-pro",
+      "family": "Perplexity Sonar",
+      "access_date": "2026-05-27",
+      "collection_time_utc": "2026-05-27T02:25:39+00:00",
+      "response_id": "gen-1779849077-8sTXk7EUz9sQeu3Y1EuE",
+      "usage": {
+        "prompt_tokens": 396,
+        "completion_tokens": 2600,
+        "total_tokens": 2996,
+        "cost": 0.04619,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.04619,
+          "upstream_inference_prompt_cost": 0.001188,
+          "upstream_inference_completions_cost": 0.045002
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "file": "raw_outputs/perplexity_sonar_pro.md"
+    },
+    {
+      "slug": "cohere_command_a",
+      "provider": "Cohere via OpenRouter",
+      "model": "cohere/command-a",
+      "family": "Cohere Command",
+      "access_date": "2026-05-27",
+      "collection_time_utc": "2026-05-27T02:25:39+00:00",
+      "response_id": "gen-1779849103-p1SgOCsNZOzouYMpfOTJ",
+      "usage": {
+        "prompt_tokens": 431,
+        "completion_tokens": 1542,
+        "total_tokens": 1973,
+        "cost": 0.0164975,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.0164975,
+          "upstream_inference_prompt_cost": 0.0010775,
+          "upstream_inference_completions_cost": 0.01542
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "file": "raw_outputs/cohere_command_a.md"
+    }
+  ]
+}
