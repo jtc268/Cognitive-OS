@@ -6,8 +6,10 @@ This packet collects and compares fresh AGI-direction architecture proposals fro
 
 - `prompts.md`: exact prompt and system message used for every model.
 - `raw_outputs/`: one minimally wrapped raw output file per model family.
-- `collection_manifest.json`: machine-readable collection metadata, model IDs, response IDs, and token usage.
+- `collection_manifest.json`: machine-readable collection metadata, model IDs, public catalog verification, response IDs, response-created timestamps, token usage, raw-output hashes, byte counts, and word counts.
 - `comparison.csv`: structured comparison across the requested architecture dimensions.
+- `comparison_by_dimension.csv`: dimension-first companion matrix for quick reviewer scanning.
+- `evidence_matrix.md`: claim-to-raw-output traceability map.
 - `summary.md`: common patterns, disagreements, and notable model-family ideas.
 - `synthesis.md`: a concrete combined architecture for Cognitive-OS implementation planning.
 - `sources.md`: source, provider, access date, edit log, and limitations.
@@ -38,6 +40,6 @@ This packet collects and compares fresh AGI-direction architecture proposals fro
 
 ## Why This Packet Is Auditable
 
-The raw files include provider/tool, model ID, access date, UTC collection timestamp, OpenRouter response ID, and token usage metadata. The artifacts do not include API keys, private prompts, account screenshots, or proprietary system messages. Human edits to raw outputs were limited to adding the metadata wrapper and preserving whitespace.
+The raw files include provider/tool, model ID, access date, UTC batch-start timestamp, OpenRouter response ID, response-created timestamp, and token usage metadata. The manifest adds raw-output SHA-256 hashes, byte counts, word counts, and a public OpenRouter model-catalog verification timestamp. The artifacts do not include API keys, private prompts, account screenshots, or proprietary system messages. Human edits to raw outputs were limited to adding the metadata wrapper and preserving whitespace.
 
 See `validation_report.md` for the exact file counts, manifest consistency checks, repository layout check, credential scan pattern, and SHA-256 hashes for the preserved raw outputs.

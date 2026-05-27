@@ -56,6 +56,17 @@ Some models recommend explicit voting or consensus among agents. Others emphasiz
 
 Gemini suggests cold-storage tiering instead of deletion, while other models allow TTL/eviction. The safest combined approach is to distinguish privacy deletion, active retrieval forgetting, and audit retention. These are separate policies.
 
+## Ideas Deliberately Not Adopted
+
+The synthesis does not adopt every model suggestion. The rejected or deferred ideas are useful because they show where the combined architecture is making implementation tradeoffs instead of averaging all outputs.
+
+- Direct online weight updates are excluded from the action path. Several models discuss learning surfaces, but the combined design limits promotion to offline, eval-gated memory, procedure, route-policy, prompt, verifier, and adapter changes.
+- Distributed event infrastructure is deferred. Qwen's queue/store design is useful at scale, but SQLite plus materialized views is a better first implementation for inspectability and replay tests.
+- Always-on multi-agent voting is rejected for routine work. Consensus is kept for high-impact decisions because deterministic policy and verifier checks are cheaper and more reliable for ordinary actions.
+- Early full causal/Bayesian world modeling is deferred. Qwen and Cohere make a strong case for it, but typed entities, provenance, and outcome deltas must exist first or the causal layer will be speculative.
+- Blockchain-style ledgers are translated into ordinary append-only hashes and audit records. The useful idea is tamper-evident side-effect history, not an external chain dependency.
+- Cold storage is not treated as privacy deletion. Gemini's tiering is useful for retrieval performance, but privacy deletion, audit retention, and active forgetting remain separate policies.
+
 ## Notable Ideas By Model Family
 
 - OpenAI: Separate intent, evidence, world state, policy, and execution so model upgrades do not destabilize governance.

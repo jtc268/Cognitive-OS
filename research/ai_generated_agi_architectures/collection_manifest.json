@@ -33,7 +33,15 @@
           "audio_tokens": 0
         }
       },
-      "file": "raw_outputs/openai_gpt54_mini.md"
+      "file": "raw_outputs/openai_gpt54_mini.md",
+      "raw_sha256": "e6e69aa5ab8fae53373a1e73953a93366d349fdb952a1cc3d333ed9c0bb32335",
+      "raw_bytes": 13156,
+      "raw_word_count": 1739,
+      "model_catalog_verified": true,
+      "model_catalog_name": "OpenAI: GPT-5.4 Mini",
+      "model_catalog_context_length": 400000,
+      "model_catalog_url": "https://openrouter.ai/models/openai/gpt-5.4-mini",
+      "response_created_utc": "2026-05-27T02:25:40Z"
     },
     {
       "slug": "anthropic_claude_sonnet_46",
@@ -66,7 +74,15 @@
           "audio_tokens": 0
         }
       },
-      "file": "raw_outputs/anthropic_claude_sonnet_46.md"
+      "file": "raw_outputs/anthropic_claude_sonnet_46.md",
+      "raw_sha256": "2ae3a4a9cb4f18fd302b6d52f099a92ee717b8c815988b776a20076542561a64",
+      "raw_bytes": 12723,
+      "raw_word_count": 1592,
+      "model_catalog_verified": true,
+      "model_catalog_name": "Anthropic: Claude Sonnet 4.6",
+      "model_catalog_context_length": 1000000,
+      "model_catalog_url": "https://openrouter.ai/models/anthropic/claude-sonnet-4.6",
+      "response_created_utc": "2026-05-27T02:26:00Z"
     },
     {
       "slug": "google_gemini_31_pro",
@@ -99,7 +115,15 @@
           "audio_tokens": 0
         }
       },
-      "file": "raw_outputs/google_gemini_31_pro.md"
+      "file": "raw_outputs/google_gemini_31_pro.md",
+      "raw_sha256": "3dc26b7d116c323c592d00559606c384479dbd8cd8851ac196e80eeaeaa80947",
+      "raw_bytes": 3371,
+      "raw_word_count": 332,
+      "model_catalog_verified": true,
+      "model_catalog_name": "Google: Gemini 3.1 Pro Preview",
+      "model_catalog_context_length": 1048576,
+      "model_catalog_url": "https://openrouter.ai/models/google/gemini-3.1-pro-preview",
+      "response_created_utc": "2026-05-27T02:27:00Z"
     },
     {
       "slug": "xai_grok_43",
@@ -132,7 +156,15 @@
           "audio_tokens": 0
         }
       },
-      "file": "raw_outputs/xai_grok_43.md"
+      "file": "raw_outputs/xai_grok_43.md",
+      "raw_sha256": "303633da1c12385fff05584169c4bb4a1c512c436638bc52ea9391da7b20fcd1",
+      "raw_bytes": 10976,
+      "raw_word_count": 1434,
+      "model_catalog_verified": true,
+      "model_catalog_name": "xAI: Grok 4.3",
+      "model_catalog_context_length": 1000000,
+      "model_catalog_url": "https://openrouter.ai/models/x-ai/grok-4.3",
+      "response_created_utc": "2026-05-27T02:27:32Z"
     },
     {
       "slug": "deepseek_v32",
@@ -165,7 +197,15 @@
           "audio_tokens": 0
         }
       },
-      "file": "raw_outputs/deepseek_v32.md"
+      "file": "raw_outputs/deepseek_v32.md",
+      "raw_sha256": "22d9806fe56ac4508b5698934aa720919896f5fc6c453a95c1a7a1847491c510",
+      "raw_bytes": 13341,
+      "raw_word_count": 1701,
+      "model_catalog_verified": true,
+      "model_catalog_name": "DeepSeek: DeepSeek V3.2",
+      "model_catalog_context_length": 131072,
+      "model_catalog_url": "https://openrouter.ai/models/deepseek/deepseek-v3.2",
+      "response_created_utc": "2026-05-27T02:27:46Z"
     },
     {
       "slug": "qwen37_max",
@@ -198,7 +238,15 @@
           "audio_tokens": 0
         }
       },
-      "file": "raw_outputs/qwen37_max.md"
+      "file": "raw_outputs/qwen37_max.md",
+      "raw_sha256": "fce5eedea72813c5402b78618035730246aa35f6d8ff6a6519ca03e5d815ead4",
+      "raw_bytes": 11235,
+      "raw_word_count": 1385,
+      "model_catalog_verified": true,
+      "model_catalog_name": "Qwen: Qwen3.7 Max",
+      "model_catalog_context_length": 1000000,
+      "model_catalog_url": "https://openrouter.ai/models/qwen/qwen3.7-max",
+      "response_created_utc": "2026-05-27T02:28:54Z"
     },
     {
       "slug": "meta_llama4_maverick",
@@ -231,7 +279,15 @@
           "audio_tokens": 0
         }
       },
-      "file": "raw_outputs/meta_llama4_maverick.md"
+      "file": "raw_outputs/meta_llama4_maverick.md",
+      "raw_sha256": "fec0b1e847e1bbaadd36d0239f8be3acb6fa7ef35b7d5fa249054c151aa6b3eb",
+      "raw_bytes": 9069,
+      "raw_word_count": 1085,
+      "model_catalog_verified": true,
+      "model_catalog_name": "Meta: Llama 4 Maverick",
+      "model_catalog_context_length": 1048576,
+      "model_catalog_url": "https://openrouter.ai/models/meta-llama/llama-4-maverick",
+      "response_created_utc": "2026-05-27T02:30:13Z"
     },
     {
       "slug": "mistral_large_2512",
@@ -264,7 +320,15 @@
           "audio_tokens": 0
         }
       },
-      "file": "raw_outputs/mistral_large_2512.md"
+      "file": "raw_outputs/mistral_large_2512.md",
+      "raw_sha256": "5d6022c2ad6b669d7ad7554e039cef6c887bc9bc1b929d0fc86b7129b2282925",
+      "raw_bytes": 11004,
+      "raw_word_count": 1268,
+      "model_catalog_verified": true,
+      "model_catalog_name": "Mistral: Mistral Large 3 2512",
+      "model_catalog_context_length": 262144,
+      "model_catalog_url": "https://openrouter.ai/models/mistralai/mistral-large-2512",
+      "response_created_utc": "2026-05-27T02:30:33Z"
     },
     {
       "slug": "perplexity_sonar_pro",
@@ -297,7 +361,15 @@
           "audio_tokens": 0
         }
       },
-      "file": "raw_outputs/perplexity_sonar_pro.md"
+      "file": "raw_outputs/perplexity_sonar_pro.md",
+      "raw_sha256": "6f429cf807918e2c464ef498e2fa5272683e305ca5af02a4cc829f202bef6c7c",
+      "raw_bytes": 11884,
+      "raw_word_count": 1441,
+      "model_catalog_verified": true,
+      "model_catalog_name": "Perplexity: Sonar Pro",
+      "model_catalog_context_length": 200000,
+      "model_catalog_url": "https://openrouter.ai/models/perplexity/sonar-pro",
+      "response_created_utc": "2026-05-27T02:31:17Z"
     },
     {
       "slug": "cohere_command_a",
@@ -330,7 +402,18 @@
           "audio_tokens": 0
         }
       },
-      "file": "raw_outputs/cohere_command_a.md"
+      "file": "raw_outputs/cohere_command_a.md",
+      "raw_sha256": "aa41ddbcdeaaa9c051f10d9a798d7c59ca51e9931e87fce47d3497f2805432ff",
+      "raw_bytes": 8421,
+      "raw_word_count": 955,
+      "model_catalog_verified": true,
+      "model_catalog_name": "Cohere: Command A",
+      "model_catalog_context_length": 256000,
+      "model_catalog_url": "https://openrouter.ai/models/cohere/command-a",
+      "response_created_utc": "2026-05-27T02:31:43Z"
     }
-  ]
+  ],
+  "prompt_sha256": "8ead28e7ae51d5a5f90a2fa0e4d0ff96a95af12e344309227e2ea5ecd3bc58e5",
+  "model_catalog_verified_at_utc": "2026-05-27T04:18:00+00:00",
+  "model_catalog_source": "https://openrouter.ai/api/v1/models"
 }

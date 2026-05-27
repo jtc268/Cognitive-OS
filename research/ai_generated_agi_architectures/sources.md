@@ -4,6 +4,8 @@
 
 All model outputs were collected on 2026-05-27 through OpenRouter's chat completions API using personally accessible API access.
 
+`collection_time_utc` records the batch start used for the run. `response_created_utc` in `collection_manifest.json` records the per-response timestamp decoded from the returned OpenRouter response IDs.
+
 ## Source Table
 
 | Family | Provider/tool | Model ID | Access date | Raw output | Response ID | Human edits |
@@ -24,13 +26,13 @@ All model outputs were collected on 2026-05-27 through OpenRouter's chat complet
 - Each model received the same system message and the same user prompt documented in `prompts.md`.
 - No model-specific prompt adaptation was used.
 - Raw outputs are preserved separately from analysis in `raw_outputs/`.
-- `collection_manifest.json` records model IDs, response IDs, timestamps, and token usage returned by the provider.
+- `collection_manifest.json` records model IDs, response IDs, timestamps, token usage returned by the provider, raw-output SHA-256 hashes, byte counts, word counts, and public OpenRouter model-catalog verification metadata.
 - `validation_report.md` records acceptance-criteria coverage, manifest consistency checks, credential scan result, and SHA-256 hashes for the raw output files.
 - Analysis files were written after collection by comparing the preserved outputs against the issue's requested dimensions and the public Cognitive-OS repository structure.
 
 ## Limitations
 
-- OpenRouter is an aggregator, so provider routing details beyond the model ID and response ID are limited to OpenRouter's returned metadata.
+- OpenRouter is an authorized aggregator access path, not a direct provider API path. The packet therefore preserves the returned model IDs, response IDs, response-created timestamps, token metadata, raw-output hashes, and public model-catalog verification instead of claiming direct-provider logs.
 - Some models produced denser or shorter outputs than requested; these were preserved as-is rather than padded.
 - This packet is architecture research for AGI-direction planning. It does not claim Cognitive-OS is currently AGI.
 - Payment, review, and acceptance are controlled by the repository maintainer.

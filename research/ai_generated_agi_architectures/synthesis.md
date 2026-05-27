@@ -197,6 +197,119 @@ Recommended first implementation choices:
 - Shadow-mode learning patches before promotion.
 - Runtime-mode transition tests in CI.
 
+## Implementation Appendix
+
+The first implementation should map EGCR onto existing Cognitive-OS surfaces instead of creating a parallel runtime. The following schemas and interfaces are intentionally small enough to prototype against `core/runtime/`, `core/orchestration/`, `modules/memory/`, `modules/governance/`, and `tools/managed_vm/`.
+
+### Event Ledger Schema
+
+```sql
+CREATE TABLE cognitive_events (
+  id TEXT PRIMARY KEY,
+  created_at TEXT NOT NULL,
+  event_type TEXT NOT NULL,
+  actor TEXT NOT NULL,
+  goal_id TEXT,
+  run_id TEXT,
+  mode TEXT NOT NULL,
+  input_hash TEXT,
+  output_hash TEXT,
+  policy_version TEXT,
+  evidence_ids TEXT NOT NULL,
+  payload_json TEXT NOT NULL,
+  replay_json TEXT,
+  previous_event_hash TEXT,
+  event_hash TEXT NOT NULL
+);
+
+CREATE INDEX cognitive_events_goal_idx ON cognitive_events(goal_id, created_at);
+CREATE INDEX cognitive_events_type_idx ON cognitive_events(event_type, created_at);
+```
+
+Initial code surfaces: `core/runtime/event_journal.py`, `core/runtime/evidence_ledger.py`, and `core/runtime/state_store.py`.
+
+### Capability Lease Schema
+
+```json
+{
+  "lease_id": "lease_...",
+  "goal_id": "goal_...",
+  "actor": "planner|executor|human",
+  "capability": "filesystem.write|network.post|browser.read|vm.execute",
+  "scope": {
+    "paths": [],
+    "domains": [],
+    "adapters": []
+  },
+  "issued_at": "2026-05-27T00:00:00Z",
+  "expires_at": "2026-05-27T00:10:00Z",
+  "reason": "bounded task-specific action",
+  "human_approved": false,
+  "revoked_at": null
+}
+```
+
+Initial code surfaces: `modules/governance/gate.py`, `modules/governance/object_store.py`, and `core/orchestration/governance_runtime.py`.
+
+### Typed Plan Schema
+
+```json
+{
+  "plan_id": "plan_...",
+  "goal_id": "goal_...",
+  "evidence_ids": ["ev_..."],
+  "steps": [
+    {
+      "step_id": "step_1",
+      "adapter": "managed_vm",
+      "method": "run_command",
+      "arguments": {},
+      "required_capability": "vm.execute",
+      "preconditions": ["repo_clean_or_owned_changes_only"],
+      "expected_observations": ["exit_code_0", "artifact_written"],
+      "rollback_hint": "delete generated artifact if verification fails"
+    }
+  ],
+  "uncertainty": {
+    "confidence": 0.72,
+    "unknowns": ["target host runtime"],
+    "escalation_threshold_hit": false
+  }
+}
+```
+
+Initial code surfaces: `core/orchestration/planner_runtime.py`, `core/orchestration/planner_stage.py`, and `planner/`.
+
+### Verifier Interface
+
+```python
+class Verifier:
+    name: str
+    risk_class: str
+
+    def precheck(self, plan_step, state, lease):
+        """Return pass/fail plus evidence IDs and operator-facing reason."""
+
+    def postcheck(self, plan_step, result, state):
+        """Compare expected and observed outcomes and emit verifier events."""
+```
+
+Initial code surfaces: `core/orchestration/verifier_runtime.py`, `core/orchestration/execution_control.py`, and `core/orchestration/stage3_execution_support_runtime.py`.
+
+### Runtime Mode Transition Table
+
+| From | To | Required event | Required check |
+| --- | --- | --- | --- |
+| `IDLE` | `ROUTINE_RUN` | `goal.created` | goal has evidence and bounded scope |
+| `ROUTINE_RUN` | `DEEP_THINK` | `uncertainty.escalated` | plan confidence below threshold |
+| `ROUTINE_RUN` | `ACTING` | `lease.granted` | policy and verifier prechecks pass |
+| `ACTING` | `ROUTINE_RUN` | `outcome.observed` | postconditions recorded |
+| `ACTING` | `DEGRADED_RECOVERY` | `verifier.failed` | rollback or replay path exists |
+| Any mode | `WAITING_HUMAN` | `approval.required` | policy says human approval is mandatory |
+| `SLEEP` | `IDLE` | `consolidation.finished` | memory promotions and cleanup are complete |
+
+Initial code surfaces: `core/runtime/runtime_modes.py`, `core/runtime/recovery_playbook.py`, and `core/runtime/long_run_supervisor.py`.
+
 ## What To Avoid
 
 - Do not let raw model output become memory without provenance.
