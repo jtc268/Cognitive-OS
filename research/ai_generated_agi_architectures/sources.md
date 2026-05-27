@@ -25,6 +25,7 @@ All model outputs were collected on 2026-05-27 through OpenRouter's chat complet
 - No model-specific prompt adaptation was used.
 - Raw outputs are preserved separately from analysis in `raw_outputs/`.
 - `collection_manifest.json` records model IDs, response IDs, timestamps, and token usage returned by the provider.
+- `validation_report.md` records acceptance-criteria coverage, manifest consistency checks, credential scan result, and SHA-256 hashes for the raw output files.
 - Analysis files were written after collection by comparing the preserved outputs against the issue's requested dimensions and the public Cognitive-OS repository structure.
 
 ## Limitations
